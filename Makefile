@@ -1,27 +1,34 @@
 CC = g++
 
-CFLAGS = -Wall
+CFLAGS = -Wall -std=c++11 -Iinclude
 
 LIBS = -lraylib -lopengl32 -lgdi32 -lwinmm
 
-OBJ = main.o player.o track.o
+SRC = src/main.cpp src/player.cpp src/track.cpp
 
-OUT = jogo
+OBJ = build/main.o build/player.o build/track.o
+
+OUT = build/jogo.exe
 
 all: $(OUT)
 
 $(OUT): $(OBJ)
 	$(CC) $(OBJ) -o $(OUT) $(LIBS)
 
-main.o: main.cpp player.hpp track.hpp
-	$(CC) -c main.cpp $(CFLAGS)
+build/main.o: src/main.cpp include/player.hpp include/track.hpp
+	$(CC) -c src/main.cpp -o build/main.o $(CFLAGS)
 
-player.o: player.cpp player.hpp track.hpp
-	$(CC) -c player.cpp $(CFLAGS)
+build/player.o: src/player.cpp include/player.hpp include/track.hpp
+	$(CC) -c src/player.cpp -o build/player.o $(CFLAGS)
 
-track.o: track.cpp track.hpp
-	$(CC) -c track.cpp $(CFLAGS)
+build/track.o: src/track.cpp include/track.hpp
+	$(CC) -c src/track.cpp -o build/track.o $(CFLAGS)
+
+run: $(OUT)
+	.\build\jogo.exe
+
+rebuild: clean all
 
 clean:
-	del *.o
-	del $(OUT).exe
+	del build\*.o
+	del build\jogo.exe
