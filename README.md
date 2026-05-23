@@ -19,5 +19,23 @@ Projeto de jogo de corrida desenvolvido em C++ utilizando Raylib.
 ## Compilação
 
 ```bash
-g++ main.cpp player.cpp track.cpp -o jogo -lraylib -lopengl32 -lgdi32 -lwinmm
-.\jogo.exe
+mingw32-make
+```
+
+## Executar o jogo
+
+```bash
+mingw32-make run
+```
+
+## Recompilar tudo
+
+```bash
+mingw32-make rebuild
+```
+
+## Limpar arquivos compilados
+
+```bash
+mingw32-make clean
+```
