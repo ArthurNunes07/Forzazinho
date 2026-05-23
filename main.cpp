@@ -1,6 +1,4 @@
 #include "player.hpp"
-//compilacao: g++ main.cpp player.cpp track.cpp -o jogo -lraylib -lopengl32 -lgdi32 -lwinmm
-//./jogo
 
 int main(){
 

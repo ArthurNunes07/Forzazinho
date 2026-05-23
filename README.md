@@ -20,3 +20,4 @@ Projeto de jogo de corrida desenvolvido em C++ utilizando Raylib.
 
 ```bash
 g++ main.cpp player.cpp track.cpp -o jogo -lraylib -lopengl32 -lgdi32 -lwinmm
+.\jogo.exe
